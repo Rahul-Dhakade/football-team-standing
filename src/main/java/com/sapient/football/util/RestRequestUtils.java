@@ -5,6 +5,7 @@ import com.sapient.football.model.Countries;
 import com.sapient.football.model.Standings;
 import com.sapient.football.model.Teams;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
@@ -20,6 +21,9 @@ public class RestRequestUtils {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Value("${api.key}")
+    private String apiKey;
+
     private HttpHeaders headers(){
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
@@ -29,16 +33,8 @@ public class RestRequestUtils {
     private UriComponents uriComponents(String uri){
 
         UriComponents builder = UriComponentsBuilder.fromHttpUrl(uri)
-                .queryParam("APIkey","9bb66184e0c8145384fd2cc0f7b914ada57b4e8fd2e4d6d586adcc27c257a978").build();
+                .queryParam("APIkey",apiKey).build();
         return builder;
-    }
-
-    public Standings getResponse(String teamName){
-        String uri = "";
-        HttpEntity<String> requestEntity = new HttpEntity<>(null, headers());
-        ResponseEntity<Standings> response = restTemplate.exchange(uriComponents(uri).toUriString(), HttpMethod.GET, requestEntity,
-                Standings.class);
-        return  response.getBody();
     }
 
     @Cacheable(value = "countries")
