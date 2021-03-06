@@ -11,9 +11,9 @@
 
 
 
-##API:<br />
-######localhost:8080/api/v1//football/standing <br />
-######Response:<br />
+## API:<br />
+###### localhost:8080/api/v1//football/standing <br />
+###### Response:<br />
 ```json
 [
     {
@@ -41,9 +41,9 @@
 ```
 
 
-######localhost:8080/api/v1//football/standing?countryName=France<br />
+###### localhost:8080/api/v1//football/standing?countryName=France<br />
 
-######Response:<br />
+###### Response:<br />
 ```json
 [
     {
@@ -71,9 +71,9 @@
 ```
 
 
-######localhost:8080/api/v1//football/standing?teamName=3033&countryName=France<br />
+###### localhost:8080/api/v1//football/standing?teamName=3033&countryName=France<br />
 
-######Response:<br />
+###### Response:<br />
 ```json
 [
     {
@@ -89,9 +89,9 @@
 ```
 
 
-######localhost:8080/api/v1//football/standing?teamName=3033&countryName=France&leagueName=Ligue 2<br />
+###### localhost:8080/api/v1//football/standing?teamName=3033&countryName=France&leagueName=Ligue 2<br />
 
-######Response:<br />
+###### Response:<br />
 ```json
 [
     {
